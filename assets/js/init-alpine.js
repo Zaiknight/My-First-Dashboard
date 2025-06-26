@@ -1,3 +1,10 @@
+let login = false;
+
+function logout(){
+  console.log('Logout Detected')
+  window.location.replace("login.html");
+  login = false;
+}
 function data() {
   function getThemeFromLocalStorage() {
     // if user already changed the theme, use it

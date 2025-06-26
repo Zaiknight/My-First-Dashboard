@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Create account - Windmill Dashboard</title>
+    <title>Create account - Zain's Dashboard</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -14,6 +14,7 @@
       defer
     ></script>
     <script src="../assets/js/init-alpine.js"></script>
+    <script src="accounts.js"></script>
   </head>
   <body>
     <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
@@ -46,15 +47,40 @@
                 <span class="text-gray-700 dark:text-gray-400">Email</span>
                 <input
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  placeholder="Jane Doe"
+                  id="email"
+                  placeholder="JaneDoe@gmail.com"
+                  type="email"
+                  required
+                />
+              </label>
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">First Name</span>
+                <input
+                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                id="fname"
+                placeholder="Jane"
+                type="name"
+                required
+                />
+              </label>
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Last Name</span>
+                <input
+                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                id="lname"
+                placeholder="Doe"
+                type="name"
+                required
                 />
               </label>
               <label class="block mt-4 text-sm">
                 <span class="text-gray-700 dark:text-gray-400">Password</span>
                 <input
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  id="pw"
                   placeholder="***************"
                   type="password"
+                  required
                 />
               </label>
               <label class="block mt-4 text-sm">
@@ -63,8 +89,10 @@
                 </span>
                 <input
                   class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  id="pwC"
                   placeholder="***************"
                   type="password"
+                  required
                 />
               </label>
 
@@ -73,7 +101,8 @@
                   <input
                     type="checkbox"
                     class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                  />
+                    checked
+                    />
                   <span class="ml-2">
                     I agree to the
                     <span class="underline">privacy policy</span>
@@ -81,13 +110,13 @@
                 </label>
               </div>
 
-              <!-- You should use a button here, as the anchor is only used for the example  -->
-              <a
+              <button
                 class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-                href="./login.html"
+                onclick="store()"
+                id="registerButton"
               >
                 Create account
-              </a>
+            </button>
 
               <hr class="my-8" />
 
@@ -122,6 +151,13 @@
                 Twitter
               </button>
 
+              <button
+              class="flex items-center justify-center w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-white text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray">
+              <img src="https://www.gstatic.com/marketing-cms/assets/images/d5/dc/cfe9ce8b4425b410b49b7f2dd3f3/g.webp=s48-fcrop64=1,00000000ffffffff-rw" alt="logo" class="w-4 h-4 mr-2 items-center justify-center text-gray-700" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              
+              Google
+            </button>
+
               <p class="mt-4">
                 <a
                   class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
@@ -135,5 +171,6 @@
         </div>
       </div>
     </div>
+    <script src="accounts.js"></script>
   </body>
 </html>
