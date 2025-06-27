@@ -1,13 +1,11 @@
-
-class User {
-    constructor(email, name, password) {
-        this.email = email;
-        this.name = name;
-        this.password = password;
-    }
-}
-
 function store() {
+    class User {
+        constructor(email, name, password) {
+            this.email = email;
+            this.name = name;
+            this.password = password;
+        }
+    }
     const email = document.getElementById('email').value;
     const pw = document.getElementById('pw').value;
     const pwC = document.getElementById('pwC').value;
