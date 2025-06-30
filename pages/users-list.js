@@ -1,3 +1,11 @@
+function delete_user(index){
+  const userList = JSON.parse(localStorage.getItem("all_users")) || [];
+  userList.splice(Number(index),1);
+  
+  localStorage.setItem('all_users', JSON.stringify(userList));
+  location.reload(true);
+}
+
 function addUserstoTable(){
    const tableBody = document.getElementById('userElement');
    const userList = JSON.parse(localStorage.getItem("all_users")) || [];
@@ -8,6 +16,7 @@ function addUserstoTable(){
    const userDescription = [];
    userRole[0] = 'Admin';
    userDescription[0] = 'SuperUser'
+  
 
     for(let i = 0; i < userList.length; i++){
 
@@ -68,6 +77,7 @@ function addUserstoTable(){
                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Delete"
                             id="delete"
+                            onclick="delete_user(${i})"
                           >
                             <svg
                               class="w-5 h-5"
@@ -88,9 +98,5 @@ function addUserstoTable(){
 
                 tableBody.insertAdjacentHTML('beforeend',html);
     }
-
-
-    console.log(users_list);
 } 
-
 addUserstoTable();

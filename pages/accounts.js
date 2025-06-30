@@ -32,7 +32,9 @@ function store() {
         alert('Please add 1 uppercase letter');
     } else if (!pw.match(lowerCaseLetters)) {
         alert('Please add 1 lowercase letter');
-    } else {
+    } else if (userList.some(user => user.email === email)) {
+        alert("Account already exists");
+    }else {
         const newUser = new User(email, `${fname} ${lname}`, pw);
         userList.push(newUser);
         localStorage.setItem('all_users', JSON.stringify(userList));
@@ -57,10 +59,11 @@ function check() {
     }
 
     const foundUser = userList.find(user => user.email === useremail && user.password === userPw);
-
+    
     if (foundUser) {
         console.log('You are logged in.');
-        setCookie("currentUser", foundUser.name,1); 
+        setCookie("CurrentName",JSON.stringify(foundUser.name),1);
+        setCookie("CurrentUser",JSON.stringify(foundUser),1);
         login = true;
         window.location.replace("index.html");
     } else {
@@ -74,7 +77,8 @@ function deleteCookie(cname) {
 
 function logout() {
     console.log('Logout Detected');
-    deleteCookie("currentUser");
+    deleteCookie("CurrentUser");
+    deleteCookie("CurrentName");
     login = false;
     window.location.replace("login.html");
 }
